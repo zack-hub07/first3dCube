@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #121212; /* Dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+/* Container Styling */
+.container {
+    height: 470px;
+    width: 320px;
+    background-color: #1f1f1f; /* Dark gray background */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    color: white; /* White text for contrast */
+}
+
+/* Display Styling */
+.display {
+    width: 100%;
+    height: 60px;
+    background-color: #333; /* Darker display */
+    color: #fff; /* White text */
+    font-size: 32px; /* Larger font size */
+    text-align: right; /* Align text to the right */
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 10px;
+    box-shadow: inset 0px 2px 5px rgba(255, 255, 255, 0.1); /* Subtle inner shadow */
+}
+
+/* Keypad Area */
+.keys {
+    height: 80%;
+    background-color: #222; /* Slightly darker background for the keys */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+/* Row Styling */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Button Styling */
+.row button {
+    background-color: #4caf50; /* Green color for buttons */
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Button shadow */
+}
+
+/* Button Hover Effect */
+.row button:hover {
+    background-color: #949494; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Button Active Effect */
+.row button:active {
+    transform: translateY(2px); /* Push button down on click */
+}
+
+/* Operator Button Styling */
+.row button.operator {
+    background-color: #ff9800; /* Orange color for operators */
+}
+
+.row button.operator:hover {
+    background-color: #fb8c00; /* Darker orange on hover */
+}
+
+/* Equal Button Styling */
+.row button.equal {
+    background-color: #2196f3; /* Blue color for equal button */
+}
+
+.row button.equal:hover {
+    background-color: #1976d2; /* Darker blue on hover */
+}
+
+/* Clear Button Styling */
+.row button.clear {
+    background-color: #f44336; /* Red color for clear button */
+}
+
+.row button.clear:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: salmon;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .container {
+            height: 400px;
+            width: 300px;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            border-radius: 8px;
+
+
+        }
+
+        .display {
+            width: 100%;
+            height: 60px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .keys {
+            height: 80%;
+            background-color: aquamarine;
+        }
+        
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 23px;
+
+        }
+        .row button{
+            background-color: red;
+            padding: 1px;
+            width: 50px;
+            height: 34px;
+            border-radius: 10px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input class="display" readonly>
+        <div class="keys">
+            <div class="row"> 
+                <button onclick="appendToDisplay('+')" class="operator">+</button>
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+            </div>
+            <div class="row">
+                <button onclick="appendToDisplay('-')" class="operator">-</button>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+            </div>
+            <div class="row">
+                <button onclick="appendToDisplay('*')" class="operator">*</button>
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+            </div>
+            <div class="row">
+                <button onclick="appendToDisplay('/')" class="operator">/</button>
+                <button onclick="appendToDisplay('0')">0</button>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="calculate()">=</button>
+            </div>
+            <div class="row">
+                <button onclick="clearDisplay()" class="operator">C</button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        const display = document.querySelector(".display")
+        function appendToDisplay(i){
+            display.value  += i;
+
+        }
+        function clearDisplay(){
+            display.value = "";
+        }
+        function calculate(){
+           
+            try{
+                display.value = eval(display.value)
+            }
+            catch(error){
+                display.value = "ERROR"
+            }
+          
+
+        }
+    </script>
+</body>
+
+</html>
